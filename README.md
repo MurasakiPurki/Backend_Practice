@@ -14,7 +14,8 @@ Django를 이용하여 기본적인 웹사이트 구축 및 포트폴리오 제�
   * - [x] database 구현
   * - [X] 글 쓰기 page와 database 연결
   * - [ ] 글 리스트 page와 database 연결
-  * - [ ] 글 쓰기 page 프론트엔드 다듬기
+  * - [X] 글 쓰기 page 프론트엔드 다듬기
+    * - [X] Ckeditor 사용
 - [ ] 채팅기능 구현
 
 추후 다른 기능 추가
