@@ -1,12 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import createpost
+from .models import Blog_post
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
 def postlist(request):
-    return render(request, 'postlist.html')
+    blogs = Blog_post.objects.all()
+    return render(request, 'postlist.html',{'blogs':blogs})
 
 def contact(request):
     return render(request, 'contact.html')
@@ -30,5 +32,7 @@ def editpost(request):
         form = createpost()
         return render(request, 'editpost.html',{'form': form})
 
-def samplepost(request):
-    return render(request, 'samplepost.html')
+def post_detail(request, blog_id):
+    blog_detail = get_object_or_404(Blog_post, pk=blog_id)
+    
+    return render(request, 'post_detail.html' , {'blog_detail': blog_detail})

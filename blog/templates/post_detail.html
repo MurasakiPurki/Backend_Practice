@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 class="section-heading">{{ blog_detail.title }}</h2>
+
+          <p>{{ blog_detail.content | safe }}</p>
+
+          <p class="post-meta">Posted by
+              <a href="#">{{ blog_detail.author }}</a>
+              {{ blog_detail.pub_date }}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  {% endblock %}
