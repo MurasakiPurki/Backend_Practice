@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import createpost
-from .models import Blog_post
+from .models import Blog_post, Comment
 
 # Create your views here.
 def index(request):
@@ -34,5 +34,11 @@ def editpost(request):
 
 def post_detail(request, blog_id):
     blog_detail = get_object_or_404(Blog_post, pk=blog_id)
+    comments = Comment.objects.filter(blog_id=blog_id)
+
+    context = {
+        'blog_detail': blog_detail,
+        'comments': comments
+    }
     
-    return render(request, 'post_detail.html' , {'blog_detail': blog_detail})
+    return render(request, 'post_detail.html' ,context)

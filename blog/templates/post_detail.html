@@ -1,24 +1,87 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <!-- Page Content -->
+  <div class="container">
 
-  <!-- Post Content -->
-  <article>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="row">
 
-          <h2 class="section-heading">{{ blog_detail.title }}</h2>
+      <!-- Post Content Column -->
+      <div class="col-lg-8 col-md-10 mx-auto">
 
-          <p>{{ blog_detail.content | safe }}</p>
+        <!-- Title -->
+        <h1 class="mt-4">{{ blog_detail.title }}</h1>
 
-          <p class="post-meta">Posted by
-              <a href="#">{{ blog_detail.author }}</a>
-              {{ blog_detail.pub_date }}</p>
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">{{ blog_detail.author }}</a>
+        </p>
+
+        <!-- Date/Time -->
+        <p>{{ blog_detail.pub_date }}</p>
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead">{{ blog_detail.content | safe }}</p>
+
+        <hr>
+
+        
+
+        <!-- Comments Form -->
+        <div class="card my-4">
+          <h5 class="card-header">Leave a Comment:</h5>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+        
+        {% for Comment in comments %}
+        <!-- Single Comment -->
+        <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">{{ Comment.comment_user }}</h5>
+            {{ Comment.comment_textfield }}
+            <h6 class="blockquote-footer">{{ Comment.comment_date }}</h6>
+            <h5 class="mt-0">{{ Comment.comment_profile_url }}</h5>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- Comment with nested comments -->
+        <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">Commenter Name</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+            <div class="media mt-4">
+              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+              <div class="media-body">
+                <h5 class="mt-0">Commenter Name</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
+
+            <div class="media mt-4">
+              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+              <div class="media-body">
+                <h5 class="mt-0">Commenter Name</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </article>
+  </div>
 
   <hr>
 
