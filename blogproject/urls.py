@@ -24,11 +24,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',blog.views.index, name='index'),
     path('postlist/',blog.views.postlist, name='postlist'),
-    path('contact/', blog.views.contact, name='contact'),
+    path('signup/', blog.views.sign_up, name='sign_up'),
+    path('signin/', blog.views.sign_in, name='sign_in'),
     path('about/', blog.views.about, name='about'),
     path('editpost/', blog.views.editpost, name='editpost'),
     path('postlist/detail/<int:blog_id>/',blog.views.post_detail, name='detail'),
     path('ckeditor/',include('ckeditor_uploader.urls')),
+    path('oauth/', blog.views.oauth, name='oauth'),
+    path('kakao_sign_up/', blog.views.kakao_sign_up, name='kakao_sign_up'),
+    path('logout/', blog.views.logout, name='logout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
