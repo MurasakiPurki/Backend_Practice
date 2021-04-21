@@ -15,7 +15,7 @@
               <h3 class = "post-subtitle">
               {{ blog.content|safe }}
             </h3>
-            </a>
+            </a>x
             <p class="post-meta">Posted by
               <a href="#">{{ blog.author }}</a>
               {{ blog.pub_date }}</p>
@@ -23,9 +23,11 @@
           <hr>
           {% endfor %}
           <!-- Pager -->
+          {% if user.is_authenticated %}
           <div class="clearfix">
-            <a class="btn btn-primary float-right" href="{% url 'editpost' %}">Older Posts &rarr;</a>
+            <a class="btn btn-primary float-right" href="{% url 'editpost' %}">Edit Posts &rarr;</a>
           </div>
+          {% endif %}
         </div>
       </div>
     </div>

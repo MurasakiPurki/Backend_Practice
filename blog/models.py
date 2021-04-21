@@ -8,7 +8,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Blog_post(models.Model):
     title = models.CharField(max_length=100, blank=False, null=False)
     pub_date = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=1)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     content = RichTextUploadingField()
 
 class Comment(models.Model):
