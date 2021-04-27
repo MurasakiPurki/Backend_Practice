@@ -8,14 +8,14 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           {% for blog in blogs %}
           <div class="post-preview">
-            <a href="{% url 'detail' blog.id %}">
+            <a href="{% url 'post_detail' blog.id %}">
               <h2 class="post-title">
                 {{ blog.title }}
               </h2>
               <h3 class = "post-subtitle">
               {{ blog.content|safe }}
             </h3>
-            </a>x
+            </a>
             <p class="post-meta">Posted by
               <a href="#">{{ blog.author }}</a>
               {{ blog.pub_date }}</p>
@@ -25,7 +25,7 @@
           <!-- Pager -->
           {% if user.is_authenticated %}
           <div class="clearfix">
-            <a class="btn btn-primary float-right" href="{% url 'editpost' %}">Edit Posts &rarr;</a>
+            <a class="btn btn-primary float-right" href="{% url 'post_write' %}">Write Posts &rarr;</a>
           </div>
           {% endif %}
         </div>

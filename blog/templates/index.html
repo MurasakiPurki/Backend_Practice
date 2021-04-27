@@ -23,7 +23,7 @@
         </div>
         <hr>
         <div class="card">
-          <a href="{% url 'postlist' %}">
+          <a href="{% url 'post_list' %}">
             <h2 class="card-body">
               Postlist
             </h2>
@@ -41,7 +41,7 @@
         <!-- Pager -->
         {% if user.is_authenticated %}
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{% url 'editpost' %}">Edit Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="{% url 'post_write' %}">Write Posts &rarr;</a>
         </div>
         {% endif %}
       </div>

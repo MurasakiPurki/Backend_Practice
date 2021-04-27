@@ -44,7 +44,7 @@
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'postlist' %}">Postlist</a>
+            <a class="nav-link" href="{% url 'post_list' %}">Postlist</a>
           </li>
           <li class="nav-item">
             <a href="https://github.com/MurasakiPurki">
@@ -53,7 +53,7 @@
           </li>
         </ul>
         <form>
-           <div class="low">
+           <div>
               {% if user.is_authenticated %}
                 <button onclick = "location.href='{% url 'logout' %}'" class="btn btn-sm btn-primary" type="button">
                   Logout {{ user.username }}

@@ -12,7 +12,7 @@ class createpost(forms.ModelForm):
             'title':forms.TextInput(
                 attrs={'class':'form-control', 'style':'width: 100%', 'placeholder':'Title'}
             ),
-            'body':forms.CharField(widget=CKEditorUploadingWidget()),
+            'content':forms.CharField(widget=CKEditorUploadingWidget()),
         }
 
 class BlogCommnentForm(forms.ModelForm):

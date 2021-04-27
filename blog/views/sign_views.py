@@ -10,10 +10,10 @@ def sign_up(request):
             auth.login(request,user)
             return redirect('index')
         else: 
-            return render(request, 'signup.html')
+            return redirect('sign_up')
     
     else:
-        return render(request, 'signup.html')
+        return render(request, 'sign_up.html')
 
         
 def kakao_sign_up(request):
@@ -41,9 +41,9 @@ def sign_in(request):
             auth.login(request, user)
             return redirect('index')
         else:
-            return render(request, 'signin.html')
+            return redirect('sign_in')
     else:
-        return render(request, 'signin.html')
+        return render(request, 'sign_in.html')
 
 def logout(request):
     auth.logout(request)
@@ -83,7 +83,7 @@ def oauth(request):
             auth.login(request, user)
             return redirect('index')
         else:
-            return render(request, 'signin.html')
+            return redirect('sign_in')
     else:
         user = User.objects.create_user(username = nickName, password = profileImageURL)
         auth.login(request,user)

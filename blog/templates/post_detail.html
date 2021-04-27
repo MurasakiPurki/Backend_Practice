@@ -28,7 +28,16 @@
 
         <hr>
 
-        
+      {% if request.user == blog_detail.author %}
+        <div>
+          <button onclick = "location.href='{% url 'post_delete' blog_detail.id %}'" class="btn btn-sm btn-primary" type="button">
+            Delete post
+          </button>
+          <button onclick = "location.href='{% url 'post_edit' blog_detail.id %}'" class="btn btn-sm btn-primary" type="button">
+            Edit post
+          </button>
+        </div>
+      {% endif %}  
 
         <!-- Comments Form -->
         <!--
